@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>{{gameTitle}}</h1>
+
+    <!-- Dynamiskt meddelande, t.ex. "Too high!" eller "Invalid guess" -->
+    <p>{{message}}</p>
+
+    <!-- Antal försök hittills -->
+    <p>You have made <strong>{{attempts}}</strong> attempts so far.</p>
+
+    <form action="{{action}}" method="POST">
+        <label for="guess">Your guess:</label>
+        <input type="text" id="guess" name="guess" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <a href="/">Back to home page</a>
+</body>
+</html>
