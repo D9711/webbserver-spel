@@ -19,7 +19,7 @@ public class Server {
     }
 
     public Server() {
-        try (ServerSocket serverSocket = new ServerSocket(this.port)) {
+        try (ServerSocket serverSocket = new ServerSocket(this.port, 0, InetAddress.getByName("127.0.0.1"))) {
             System.out.println("Listening on port: " + this.port);
 
             while (true) {
