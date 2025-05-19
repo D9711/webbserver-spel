@@ -3,7 +3,7 @@ name: Deploy Java-server
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
