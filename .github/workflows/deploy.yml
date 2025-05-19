@@ -1,9 +1,9 @@
-name: Deploy Java-server
+name: Deploy Spelserver
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -15,6 +15,12 @@ jobs:
           cd /opt/webbserver-spel
           git pull
 
-      - name: Starta om Java-servern
+      - name: Kompilera om Java-filer
         run: |
-          systemctl --user restart java-server.service
+          cd /opt/webbserver-spel
+          find . -name "*.java" > sources.txt
+          javac -cp guessGames.jar @sources.txt
+
+      - name: Starta om spelservern
+        run: |
+          sudo systemctl restart spel.service
