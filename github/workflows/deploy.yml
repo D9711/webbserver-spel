@@ -1,0 +1,20 @@
+name: Deploy Java-server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Uppdatera kod i webbserver-spel
+        run: |
+          cd /opt/webbserver-spel
+          git pull
+
+      - name: Starta om Java-servern
+        run: |
+          systemctl --user restart java-server.service
